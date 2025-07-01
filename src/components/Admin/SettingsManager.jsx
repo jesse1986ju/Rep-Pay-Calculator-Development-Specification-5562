@@ -22,7 +22,7 @@ const SettingsManager = () => {
   const loadSettings = async () => {
     try {
       const { data, error } = await supabase
-        .from('settings')
+        .from('settings_rpc_x7k9m2')
         .select('*')
         .single()
 
@@ -43,20 +43,23 @@ const SettingsManager = () => {
       setSaving(true)
       
       const { data: existingSettings } = await supabase
-        .from('settings')
+        .from('settings_rpc_x7k9m2')
         .select('id')
         .single()
 
       if (existingSettings) {
         const { error } = await supabase
-          .from('settings')
-          .update(settings)
+          .from('settings_rpc_x7k9m2')
+          .update({
+            ...settings,
+            updated_at: new Date().toISOString()
+          })
           .eq('id', existingSettings.id)
 
         if (error) throw error
       } else {
         const { error } = await supabase
-          .from('settings')
+          .from('settings_rpc_x7k9m2')
           .insert([settings])
 
         if (error) throw error

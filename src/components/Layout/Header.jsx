@@ -27,7 +27,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900">Rep Pay Calculator</h1>
-              <p className="text-sm text-gray-500">Brinks Home Security</p>
+              <p className="text-sm text-gray-500">Engage Home Security</p>
             </div>
           </div>
 
@@ -46,7 +46,6 @@ const Header = () => {
                   <SafeIcon icon={FiSettings} className="h-5 w-5" />
                 </button>
               )}
-              
               <button
                 onClick={handleSignOut}
                 className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
